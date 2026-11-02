@@ -58,8 +58,8 @@ function MyHabits() {
 
   function onSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!name.trim()) return toast.error("Habit name is required");
-    if (name.length > 120 || when.length > 1000) return toast.error("Text is too long");
+    if (!name.trim()) { toast.error("Habit name is required"); return; }
+    if (name.length > 120 || when.length > 1000) { toast.error("Text is too long"); return; }
     add.mutate();
   }
 

@@ -87,8 +87,8 @@ function HabitPage() {
   function onPost(e: FormEvent) {
     e.preventDefault();
     const body = comment.trim();
-    if (!body) return toast.error("Write a comment first");
-    if (body.length > 2000) return toast.error("Comment is too long");
+    if (!body) { toast.error("Write a comment first"); return; }
+    if (body.length > 2000) { toast.error("Comment is too long"); return; }
     post.mutate();
   }
 
