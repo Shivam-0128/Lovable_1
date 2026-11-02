@@ -23,7 +23,7 @@ export function currentStreak(days: string[]): number {
   if (sorted.length === 0) return 0;
   let streak = 1;
   for (let i = 1; i < sorted.length; i++) {
-    const [y, m, d] = sorted[i - 1].split("-").map(Number);
+    const [y = 0, m = 1, d = 1] = (sorted[i - 1] ?? "").split("-").map(Number);
     const expected = formatDay(new Date(y, m - 1, d - 1));
     if (sorted[i] === expected) streak++;
     else break;
